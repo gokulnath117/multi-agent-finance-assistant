@@ -13,7 +13,10 @@ llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
 tools = [search_tool, news_tool]
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a helpful assistant. Choose and call the right tool based on user query."),
+    ("system", '''You are a highly intelligent and reliable Financial Assistant. You help users make informed financial decisions by analyzing historical stock data and scraping the latest financial news.
+        You have access to two specialized tools:
+        Search Tool Use this tool to retrieve and analyze historical stock price data for any public company or financial instrument.
+        News Tool Use this tool to fetch the most recent and relevant news articles or headlines related to a company, industry, or financial topic.'''),
     ("user", "{input}"),
     ("placeholder", "{agent_scratchpad}")
 ])
